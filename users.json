@@ -1,0 +1,13 @@
+[
+    {
+        "username": "wao",
+        "password": "123",
+        "perros": [
+            {
+                "nombre": "Neg",
+                "descripcion": "gro",
+                "imagen": "https:\/\/images.dog.ceo\/breeds\/terrier-scottish\/n02097298_1319.jpg"
+            }
+        ]
+    }
+]
