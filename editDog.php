@@ -8,7 +8,6 @@ $username = $_SESSION['username'];
 $usersFile = 'users.json';
 $users = file_exists($usersFile) ? json_decode(file_get_contents($usersFile), true) : [];
 
-// Buscar el usuario actual y su índice en el arreglo
 $currentUserIndex = null;
 $currentUser = null;
 foreach ($users as $key => $user) {
@@ -19,7 +18,6 @@ foreach ($users as $key => $user) {
     }
 }
 
-// Si no se encuentra el usuario, redirige a dashboard.php
 if(!$currentUser) {
     header("Location: dashboard.php");
     exit;
@@ -38,7 +36,6 @@ if (!isset($currentUser['perros'][$dogIndex])) {
 $dog = $currentUser['perros'][$dogIndex];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Actualizar nombre y descripción
     $newNombre = trim($_POST['nombre']);
     $newDescripcion = $_POST['descripcion'];
     
