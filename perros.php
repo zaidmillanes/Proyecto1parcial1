@@ -6,7 +6,6 @@ if(!isset($_SESSION['username'])){
 }
 $username = $_SESSION['username'];
 
-// Cargar usuarios y buscar el usuario actual
 $usersFile = 'users.json';
 $users = file_exists($usersFile) ? json_decode(file_get_contents($usersFile), true) : [];
 $currentUser = null;
