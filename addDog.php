@@ -1,5 +1,4 @@
 <?php
-// addDog.php
 session_start();
 if (!isset($_SESSION['username'])) {
     header("Location: index.html");
@@ -10,7 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = trim($_POST['nombre']);
     $descripcion = $_POST['descripcion'];
 
-    // Obtener imagen desde la API de Dog CEO
     $apiUrl = 'https://dog.ceo/api/breeds/image/random';
     $response = file_get_contents($apiUrl);
     $data = json_decode($response, true);
@@ -19,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usersFile = 'users.json';
     $users = file_exists($usersFile) ? json_decode(file_get_contents($usersFile), true) : [];
 
-    // Actualizar el usuario actual
     foreach ($users as &$user) {
         if ($user['username'] === $_SESSION['username']) {
             if (!isset($user['perros'])) {
