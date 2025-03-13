@@ -1,13 +1,11 @@
 <?php
-// register.php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username']);
-    $password = $_POST['password']; // Se guarda sin encriptar
+    $password = $_POST['password'];
 
     $usersFile = 'users.json';
     $users = file_exists($usersFile) ? json_decode(file_get_contents($usersFile), true) : [];
 
-    // Verificar si el usuario ya existe
     foreach ($users as $user) {
         if ($user['username'] === $username) {
             echo "El usuario ya existe. <a href='index.html'>Volver</a>";
